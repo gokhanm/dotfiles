@@ -112,21 +112,22 @@ source $ZSH/oh-my-zsh.sh
 export GOPROXY=direct
 export GOSUMDB=off
 export PATH="/Users/gokhanmankara/go/bin/:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
-
 # $1 -> build for os
 # $2 -> go version
 goBuild(){
-	goLatest="1.17.5"
+	goLatest="1.18.1"
 	help="goBuild linux [1.17.4]"
 
 	if [[ "$1" == "" ]]
-	then	
+	then
 	   echo "which platform? exp: linux/darwin"
 	   echo "usage: $help"
 	else
 		if [[ "$1" == "linux" && "$2" != "" ]]
     		then
 			GOOS=linux GOARCH=amd64 go$2 build .
+		elif [[ "$1" == "linux" && "$2" == "" ]]; then
+			GOOS=linux GOARCH=amd64 go build .
 		elif [[ "$1" == "darwin" && "$2" != "" ]]
 		then
 			GOARCH=amd64 go$2 build .
@@ -147,7 +148,6 @@ downloadGo() {
 	go$version download
 	go$version version
 }
-
 
 ZSH_CUSTOM="~/.oh-my-zsh/custom/plugins"
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ffffff,bg=cyan,bold,underline"
