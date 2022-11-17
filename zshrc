@@ -115,8 +115,9 @@ export PATH="/Users/gokhanmankara/go/bin/:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 # $1 -> build for os
 # $2 -> go version
 goBuild(){
-	goLatest="1.18.1"
 	help="goBuild linux [1.17.4]"
+	goBinPath="/Users/gokhanmankara/go/bin/"
+	goLatest=$(ls $goBinPath|grep -E "go[0-9]"|tail -1)
 
 	if [[ "$1" == "" ]]
 	then
@@ -137,6 +138,7 @@ goBuild(){
 	fi
 
 }
+
 downloadGo() {
 	if [[ "$1" == "" ]]
 	then
