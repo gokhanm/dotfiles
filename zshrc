@@ -133,7 +133,7 @@ goBuild(){
 		then
 			GOARCH=amd64 go$2 build .
     		else
-			GOARCH=amd64 go$goLatest build .
+			GOARCH=amd64 $goLatest build .
     		fi
 	fi
 
