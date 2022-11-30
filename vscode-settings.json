@@ -1,0 +1,28 @@
+{
+    "workbench.startupEditor": "newUntitledFile",
+    "editor.fontSize": 16,
+    "editor.formatOnSave": true,
+    "go.gopath": "/Users/gokhan/go",
+    "editor.renderWhitespace": "none",
+    "editor.minimap.enabled": true,
+    "files.autoSave": "off",
+    "go.useLanguageServer": true,
+    // "go.formatTool": "goimports",
+    "[go]": {
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        }
+    },
+    // "go.alternateTools": {
+    //     "go": "/Users/gokhan/go/bin/go1.17.9"
+    // },
+    "terminal.integrated.fontFamily": "Meslo LG M DZ for Powerline",
+    "terminal.integrated.fontSize": 14,
+    "extensions.autoCheckUpdates": false,
+    "extensions.autoUpdate": false,
+    "editor.fontFamily": "Meslo LG M DZ for Powerline",
+    "go.toolsManagement.autoUpdate": true,
+    // "python.pythonPath": "/usr/local/bin/python3",
+    "editor.guides.bracketPairs": true
+}
