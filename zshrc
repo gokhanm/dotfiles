@@ -111,12 +111,16 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export GOPROXY=direct
 export GOSUMDB=off
-export PATH="/Users/gokhanmankara/go/bin/:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+export GOPATH="/Users/gokhanmankara/go"
+export GOBIN="$GOPATH/bin"
+export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+#export PATH="/Users/gokhanmankara/go/bin/:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+
 # $1 -> build for os
 # $2 -> go version
 goBuild(){
 	help="goBuild linux [1.17.4]"
-	goBinPath="/Users/gokhanmankara/go/bin/"
+	goBinPath=$(echo $GOBIN)
 	goLatest=$(ls $goBinPath|grep -E "go[0-9]"|tail -1)
 
 	if [[ "$1" == "" ]]
@@ -128,7 +132,7 @@ goBuild(){
     		then
 			GOOS=linux GOARCH=amd64 go$2 build .
 		elif [[ "$1" == "linux" && "$2" == "" ]]; then
-			GOOS=linux GOARCH=amd64 go build .
+			GOOS=linux GOARCH=amd64 $goLatest build .
 		elif [[ "$1" == "darwin" && "$2" != "" ]]
 		then
 			GOARCH=amd64 go$2 build .
