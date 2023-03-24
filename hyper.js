@@ -130,6 +130,12 @@ module.exports = {
         // set to true to preserve working directory when creating splits or tabs
         preserveCWD: true,
         // for advanced config flags please refer to https://hyper.is/#cfg
+
+        // hyper-gruvbox theme configuration
+        gruvboxTheme: {
+            style: 'light', // 'dark' or 'light'
+            contrast: 'normal' // 'normal' or 'soft', 'hard'
+        },
     },
     // a list of plugins to fetch and install from npm
     // format: [@org/]project[#version]
@@ -145,11 +151,6 @@ module.exports = {
     keymaps: {
         // Example
         // 'window:devtools': 'cmd+alt+o',
-    },
-
-    gruvboxTheme: {
-        style: 'light', // or 'light'
-        contrast: 'normal' // or 'soft', 'hard'
     },
 };
 //# sourceMappingURL=config-default.js.map
