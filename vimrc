@@ -74,15 +74,21 @@ filetype plugin indent on   " Also load indent files, to automatically do langua
 "     │     └───────── Enable loading of indent file
 "     └─────────────── Enable loading of plugin files
 
-set rtp+=~/.vim/bundle/Vundle.vim       " Set the runtime path to include Vundle
-call vundle#begin()
-Plugin 'gmarik/Vundle.vim'              " Let vundle manage itself
-Plugin 'tpope/vim-fugitive'             "
-Plugin 'scrooloose/nerdtree'            "
-Plugin 'vim-airline/vim-airline'        "
-Plugin 'majutsushi/tagbar'              "
-Plugin 'airblade/vim-gitgutter'		"
-call vundle#end()                       " Finish Vundle stuff
+call plug#begin('~/.vim/plugged')
+
+Plug 'tpope/vim-fugitive'            
+Plug 'scrooloose/nerdtree'        
+Plug 'vim-airline/vim-airline'
+Plug 'majutsushi/tagbar'         
+Plug 'airblade/vim-gitgutter'
+Plug 'fatih/vim-go'
+Plug 'cespare/vim-toml'
+Plug 'ekalinin/Dockerfile.vim', {'for' : 'Dockerfile'}
+Plug 'plasticboy/vim-markdown'
+
+
+call plug#end()
+
 
 
 "----------------------------------------------------------------

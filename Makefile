@@ -3,7 +3,7 @@ UNAME_S := $(shell uname -s | tr A-Z a-z)
 all: sync
 
 sync:
-mkdir -p ~/.vim/{undos,backups,swaps,bundle}
+mkdir -p ~/.vim/{undos,backups,swaps,bundle,plugged}
 
 [ -f ~/.vimrc ] || ln -s $(PWD)/vimrc ~/.vimrc
 [ -f ~/.hyper.js ] || ln -s $(PWD)/hyper.js ~/.hyper.js
