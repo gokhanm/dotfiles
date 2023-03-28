@@ -1,25 +1,32 @@
 UNAME_S := $(shell uname -s | tr A-Z a-z)
 
+# if first paramether file exists, run second shell paramether command
+define ifExistsRun
+ifneq ("$(wildcard $(1))","")
+	$(shell $(2))
+endif
+endef
+
 all: sync
 
 sync:
-mkdir -p ~/.vim/{undos,backups,swaps,bundle,plugged}
-
-[ -f ~/.vimrc ] || ln -s $(PWD)/vimrc ~/.vimrc
-[ -f ~/.hyper.js ] || ln -s $(PWD)/hyper.js ~/.hyper.js
-[ -f ~/.gitconfig ] || ln -s $(PWD)/gitconfig ~/.gitconfig
+	mkdir -p ~/.vim/{undos,backups,swaps,bundle,plugged}
+	$(call ifExistsRun,~/.vimrc,ln -sf $(PWD)/vimrc ~/.vimrc)
+	$(call ifExistsRun,~/.hyper.js,ln -sf $(PWD)/hyper.js ~/.hyper.js)
+	$(call ifExistsRun,~/.gitconfig,ln -sf $(PWD)/gitconfig ~/.gitconfig)
 
 ifeq ($(UNAME_S),linux)
-	[ -f ~/.bashrc ] || ln -s $(PWD)/bashrc ~/.bashrc
+	$(call ifExistsRun,~/.bashrc,ln -sf $(PWD)/bashrc ~/.bashrc)
 endif
 ifeq ($(UNAME_S),darwin)
-	[ -f ~/.zshrc ] || ln -s $(PWD)/zshrc ~/.zshrc
+	$(call ifExistsRun,~/.zshrc,ln -sf $(PWD)/zshrc ~/.zshrc)
 endif
 
 clean:
-rm -f ~/.vimrc 
-rm -f ~/.vim
-rm -f ~/.gitconfig
+	rm -f ~/.vimrc
+	rm -rf ~/.vim
+	rm -f ~/.gitconfig
+	rm -f ~/.hyper.js
 
 ifeq ($(UNAME_S),linux)
 	rm -f ~/.bashrc
