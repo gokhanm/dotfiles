@@ -11,7 +11,8 @@ ifeq ($(UNAME_S),linux)
 	[ -f ~/.bashrc ] || ln -sf $(PWD)/bashrc ~/.bashrc
 endif
 ifeq ($(UNAME_S),darwin)
-	[ -f ~/.zshrc ] || ln -sf $(PWD)/zshrc ~/.zshrc
+	[ -f ~/.config/fish/config.fish ] || ln -sf $(PWD)/config.fish ~/.config/fish/config.fish
+	[ -d ~/.config/fish/functions/ ] || ln -s $(PWD)/fish/functions ~/.config/fish/functions
 endif
 
 clean:
@@ -24,7 +25,8 @@ ifeq ($(UNAME_S),linux)
 	rm -f ~/.bashrc
 endif
 ifeq ($(UNAME_S),darwin)
-	rm -f ~/.zshrc
+	rm -f ~/.config/fish/config.fish
+	rm -f ~/.config/fish/functions
 endif
 
 .PHONY: all sync clean
