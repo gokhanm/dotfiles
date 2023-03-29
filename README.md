@@ -10,6 +10,12 @@ brew bundle
 # copy dotfiles
 make
 
+# add fish bin path into trusted shells for mac
+sudo vim /etc/shells
+
+# make fish the new default
+chsh -s /usr/local/bin/fish
+
 # setup vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
