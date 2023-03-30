@@ -13,8 +13,11 @@ make
 # add fish bin path into trusted shells for mac
 sudo vim /etc/shells
 
-# make fish the new default
+# make fish the new default on mac for intel chipset
 chsh -s /usr/local/bin/fish
+
+# make fish the new default on mac for intel chipset
+chsh -s /opt/homebrew/bin/fish
 
 # setup vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \

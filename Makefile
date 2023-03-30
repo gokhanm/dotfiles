@@ -4,6 +4,7 @@ all: sync
 
 sync:
 	mkdir -p ~/.vim/{undos,backups,swaps,bundle,plugged}
+	mkdir -p ~/.config/fish
 	[ -f ~/.vimrc ] || ln -sf $(PWD)/vimrc ~/.vimrc
 	[ -f ~/.hyper.js ] || ln -sf $(PWD)/hyper.js ~/.hyper.js
 	[ -f ~/.gitconfig ] || ln -sf $(PWD)/gitconfig ~/.gitconfig
