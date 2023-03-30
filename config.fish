@@ -29,7 +29,7 @@ set fish_greeting ""
 
 # don't describe the command for darwin
 # https://github.com/fish-shell/fish-shell/issues/6270
-function __fish_describe_command; end
+#function __fish_describe_command; end
 
 # brew install jump, https://github.com/gsamokovarov/jump
 #status --is-interactive; and source (jump shell fish | psub)
