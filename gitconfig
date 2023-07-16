@@ -17,6 +17,7 @@
 	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
     ls = ls-files
     ad = add
+    po = push origin
 [pager]
 	branch = false
 [color]
