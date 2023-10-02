@@ -1,8 +1,9 @@
 set -gx GOPROXY direct
 set -gx GOSUMDB off
-set -gx GOPATH "/Users/gokhan/go"
+set -gx GOPATH "$HOME/go"
 set -gx GOBIN "$GOPATH/bin"
 set -gx GOBIN $HOME/go/bin
+set -gx RUSTBIN $HOME/.cargo/bin
 
 set -gx EDITOR vim
 set -gx FZF_CTRL_T_COMMAND vim
@@ -43,4 +44,5 @@ set fish_greeting ""
 
 set -g fish_user_paths $GOBIN $fish_user_paths
 set -g fish_user_paths "/opt/homebrew/bin" $fish_user_paths
+set -g fish_user_paths $RUSTBIN $fish_user_paths
 
