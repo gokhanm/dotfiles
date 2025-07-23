@@ -8,13 +8,13 @@ function goBuild -a os -a ver
     set goLatest $(ls $GOBIN|grep -E "go[0-9]"|tail -1)
 
     if test "$os" = "linux" && test "$ver" != ""
-        GOOS=linux GOARCH=amd64 $goBinPath build .
+        GOOS=linux GOARCH=amd64 $goBinPath build -gcflags=all="-l" .
     else if test "$os" = "linux" && test "$ver" = ""
-        GOOS=linux GOARCH=amd64 $goLatest build .
+        GOOS=linux GOARCH=amd64 $goLatest build -gcflags=all="-l" .
     else if test "$os" = "darwin" && test "$ver" != "" 
-        GOARCH=amd64 $goBinPath build .
+        GOARCH=amd64 $goBinPath build -gcflags=all="-l" .
     else
-        GOARCH=amd64 $goLatest build .
+        GOARCH=amd64 $goLatest build -gcflags=all="-l" .
     end
 
 end
