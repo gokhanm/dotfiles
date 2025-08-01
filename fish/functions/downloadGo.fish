@@ -1,4 +1,4 @@
-function downloadGo --argument ver
+function downloadGo --argument ver --description 'download go version'
     if test -z "$ver"
         echo "Usage: downloadGo [version]"
         return

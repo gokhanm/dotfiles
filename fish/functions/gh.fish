@@ -1,51 +1,13 @@
-function gh --description 'Provides help for custom Git functions (gb, gbn, gcp, gbd, gco, gplo)'
-    set -l func_name $argv[1]
+function gh
+    set -l function_dir ~/.config/fish/functions 
 
-    if test -z "$func_name"
-        echo "--- Custom Git Functions Help ---"
-        echo "gst: alias gb=git status"
-        echo "gb: alias gb=git branch (create only)"
-        echo "gbn: alias gbn=git branch && git checkout"
-        echo "gcp: alias gcp=\"git add . && git commit -m <message> && git push origin <current_branch>\""
-        echo "gbd: alias gbd=git branch -D"
-        echo "gco: alias gco=git checkout"
-        echo "gplo: alias gplo=git pull origin (git rev-parse --abbrev-ref HEAD)"
-        echo "---------------------------------"
-        echo "For specific help, use: gh <function_name>"
-        echo "Example: gh gcp"
-    else
-        switch "$func_name"
-            case "gst"
-                echo "Description for 'gst': alias gb=git status"
-                echo "Usage: gst"
-                echo "Example: gst"
-            case "gb"
-                echo "Description for 'gb': alias gb=git branch (create only)"
-                echo "Usage: gb <new_branch_name>"
-                echo "Example: gb my-new-feature"
-            case "gbn"
-                echo "Description for 'gbn': alias gbn=git branch && git checkout"
-                echo "Usage: gbn <new_branch_name>"
-                echo "Example: gbn fix/bug-login"
-            case "gcp"
-                echo "Description for 'gcp': alias gcp=\"git add . && git commit -m <message> && git push origin <current_branch>\""
-                echo "Usage: gcp \"<commit message>\""
-                echo "Example: gcp \"feat: Add user profile page\""
-            case "gbd"
-                echo "Description for 'gbd': alias gbd=git branch -D"
-                echo "Usage: gbd <branch_name_to_delete>"
-                echo "Example: gbd old-feature-branch"
-            case "gco"
-                echo "Description for 'gco': alias gco=git checkout"
-                echo "Usage: gco <branch_name_or_commit>"
-                echo "Example: gco main"
-            case "gplo"
-                echo "Description for 'gplo': alias gplo=git pull origin (git rev-parse --abbrev-ref HEAD)"
-                echo "Usage: gplo"
-                echo "Example: gplo"
-            case "*"
-                echo "Error: Unknown custom Git function '$func_name'."
-                echo "Available functions: gb, gbn, gcp, gbd, gco, gplo"
+    if test -d "$function_dir"
+        for file in "$function_dir"/*.fish
+            set -l func_name (basename "$file" .fish)
+
+            type $func_name|grep "description"
         end
+    else
+        echo "Hata: Fish fonksiyon dizini bulunamadı: $function_dir"
     end
 end
