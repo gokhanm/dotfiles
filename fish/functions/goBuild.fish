@@ -11,8 +11,14 @@ function goBuild -a os -a ver
         GOOS=linux GOARCH=amd64 $goBinPath build -gcflags=all="-l" .
     else if test "$os" = "linux" && test "$ver" = ""
         GOOS=linux GOARCH=amd64 $goLatest build -gcflags=all="-l" .
-    else if test "$os" = "darwin" && test "$ver" != "" 
+    else if test "$os" = "darwin" && test "$ver" != ""
         GOARCH=amd64 $goBinPath build -gcflags=all="-l" .
+    else if test "$os" = "version"
+        if test "$ver" = ""
+            $goLatest version
+        else
+            $goBinPath version
+        end
     else
         GOARCH=amd64 $goLatest build -gcflags=all="-l" .
     end
