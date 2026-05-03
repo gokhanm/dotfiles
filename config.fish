@@ -1,3 +1,5 @@
+export PATH="$HOME/.local/bin:$PATH"
+
 set -gx GOPROXY direct
 set -gx GOSUMDB off
 set -gx GOPATH "$HOME/go"
